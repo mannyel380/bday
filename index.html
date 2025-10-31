@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <h1>Enter the correct name and color</h1>
+            <form id="loginForm">
+                <input type="text" id="nameInput" placeholder="Enter your name" required>
+                <input type="text" id="colorInput" placeholder="Enter your favorite color" required>
+                <button type="submit">Enter</button>
+            </form>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+    </div>
+
+    <div id="welcomePage" class="page">
+        <div class="welcome-container">
+            <h1 id="welcomeMessage"></h1>
+            <canvas id="fireworksCanvas"></canvas>
+        </div>
+    </div>
+
+    <div id="mainMenu" class="page">
+        <div class="menu-container">
+            <h1>For My Dearest Lilymae 💜</h1>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="showPage('lettersPage')">
+                    <span>❤️</span> Letters
+                </button>
+                <button class="menu-btn" onclick="showPage('musicPage')">
+                    <span>🎵</span> Music
+                </button>
+                <button class="menu-btn" onclick="showPage('notesPage')">
+                    <span>📝</span> Notes
+                </button>
+                <button class="menu-btn" onclick="showPage('galleryPage')">
+                    <span>🌸</span> Gallery
+                </button>
+                <button class="menu-btn" onclick="showPage('memoriesPage')">
+                    <span>📸</span> Memories
+                </button>
+                <button class="menu-btn" onclick="showPage('puzzlePage')">
+                    <span>🧩</span> Puzzle
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Letters Page -->
+    <div id="lettersPage" class="page">
+        <button class="back-btn" onclick="showPage('mainMenu')">← Back</button>
+        <div class="letters-container">
+            <h2>Letters</h2>
+            <div class="envelopes">
+                <div class="envelope" onclick="openLetter(1)">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="wax-seal">L❤️D</div>
+                    </div>
+                </div>
+                <div class="envelope" onclick="openLetter(2)">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="wax-seal">L❤️D</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="letterModal" class="modal">
+            <div class="modal-content letter-content">
+                <span class="close" onclick="closeLetter()">&times;</span>
+                <h3 id="letterTitle"></h3>
+                <p id="letterText"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Page -->
+    <div id="musicPage" class="page">
+        <button class="back-btn" onclick="showPage('mainMenu')">← Back</button>
+        <div class="music-container">
+            <h2>Our Playlist 🎵</h2>
+            <div class="music-players">
+                <div class="music-card">
+                    <h3>daisies - Justin Bieber</h3>
+                    <audio controls>
+                        <source src="music1/daisies.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="music-card">
+                    <h3>Kahel na Langit - Maki</h3>
+                    <audio controls>
+                        <source src="music1/kahel.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="music-card">
+                    <h3>Miss Miss - Rob Deniel</h3>
+                    <audio controls>
+                        <source src="music1/miss.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="music-card">
+                    <h3>You! - Lany</h3>
+                    <audio controls>
+                        <source src="music1/you!.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Page -->
+    <div id="notesPage" class="page">
+        <button class="back-btn" onclick="showPage('mainMenu')">← Back</button>
+        <div class="notes-container">
+            <h2>Reminders for You 💜</h2>
+            <div class="sticky-notes">
+                <div class="sticky-note" style="background: #ffeb3b;">
+                    <p>Psalm 86:15<br>  "When you feel like giving up. Remember that God won't give up on you."</p>
+                </div>
+                <div class="sticky-note" style="background: #ff9ff3;">
+                    <p>Psalm 2:3<br> Isaiah 66:13<br>"God is with you even on your hardest day."</p>
+                </div>
+                <div class="sticky-note" style="background: #80deea;">
+                    <p>Psalm 30:5<br>"Soon you will laugh in places you cried,keep going, God is with you every step you take."</p>
+                </div>
+                <div class="sticky-note" style="background: #ffab91;">
+                    <p>"You are enough, exactly as you are."</p>
+                </div>
+                <div class="sticky-note" style="background: #ce93d8;">
+                    <p>"You are worth more than you know,and you always have been.🌟"</p>
+                </div>
+                <div class="sticky-note" style="background: #a5d6a7;">
+                    <p>"It's pkay to slow down; you're not falling behind.💕"</p>
+                </div>
+                <div class="sticky-note" style="background: #ef9a9a;">
+                    <p>Matthew 11:28<br>"Come to me, all you who are weary and burdened,and i will give you rest.🙏"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="galleryPage" class="page">
+        <button class="back-btn" onclick="showPage('mainMenu')">← Back</button>
+        <div class="gallery-container">
+            <h2>Garden of Love 🌸</h2>
+            <div class="flower-360">
+                <div class="flower-viewer" id="flowerViewer">
+                    <img src="flowers.jpg" alt="Flower">
+                </div>
+                <div class="rotate-hint">← Drag to rotate →</div>
+            </div>
+            <button class="surprise-btn" onclick="showSurprise()">
+                ✨ Final Surprise ✨
+            </button>
+        </div>
+    </div>
+
+    <!-- Surprise Page -->
+    <div id="surprisePage" class="page">
+        <button class="back-btn" onclick="showPage('galleryPage')">← Back</button>
+        <div class="surprise-container">
+            <h2>A Flower Just For You 🌺</h2>
+            <canvas id="flowerCanvas"></canvas>
+            <button class="bloom-btn" onclick="bloomFlower()">Make it Bloom</button>
+        </div>
+    </div>
+
+    <!-- Memories Timeline Page -->
+    <div id="memoriesPage" class="page">
+        <button class="back-btn" onclick="showPage('mainMenu')">← Back</button>
+        <div class="memories-container">
+            <h2>Timeline 💕</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">First Meeting</div>
+                    <div class="timeline-content">
+                        <h3>Where it all started</h3>
+                        <p>Do you remember our first meet up? Even though i was nervous and the weather was rough, that first meeting left a deep impression on me.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">First coffe</div>
+                    <div class="timeline-content">
+                        <h3>Our first coffee</h3>
+                        <p>Thank you for spending time with me and sharing a cup of coffee with me.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Special Moments</div>
+                    <div class="timeline-content">
+                        <h3>This is our Second coffee</h3>
+                        <p>We met again beneath the rain— you still came, despite the storm. Somehow, That day felt quietly special.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Araaay ko</div>
+                    <div class="timeline-content">
+                        <h3>Our last chat HHAHAHAHHA</h3>
+                        <p>i don't know what to say anymore. HAHAHHAHAH</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Puzzle Page -->
+    <div id="puzzlePage" class="page">
+        <button class="back-btn" onclick="showPage('mainMenu')">← Back</button>
+        <div class="puzzle-container">
+            <h2>Reveal the Message 💜</h2>
+            <p class="puzzle-instructions">Click the hearts in order to reveal a special message!</p>
+            <div class="hearts-grid" id="heartsGrid"></div>
+            <div id="secretMessage" class="secret-message"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
