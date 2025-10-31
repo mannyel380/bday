@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 // Show Welcome with Typewriter Effect and Fireworks
 function showWelcome() {
     showPage('welcomePage');
-    const message = "Welcome none 💜";
+    const message = "Welcome Lilymae Dacillo 💜";
     const welcomeEl = document.getElementById('welcomeMessage');
     let i = 0;
     
@@ -416,3 +416,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initPuzzle();
 
 });
+
