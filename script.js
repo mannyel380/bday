@@ -7,11 +7,11 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const color = document.getElementById('colorInput').value.trim().toLowerCase();
     const errorMsg = document.getElementById('errorMessage');
     
-    if (name.toLowerCase() === 'none' && color === 'blue') {
+    if (name.toLowerCase() === 'Lilymae Dacillo' && color === 'Purple') {
         errorMsg.textContent = '';
         showWelcome();
     } else {
-        errorMsg.textContent = 'You are not none!';
+        errorMsg.textContent = 'You are not Lily!';
     }
 });
 
@@ -414,4 +414,5 @@ window.onclick = function(event) {
 // Initialize puzzle when page loads
 document.addEventListener('DOMContentLoaded', function() {
     initPuzzle();
+
 });
